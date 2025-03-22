@@ -23,189 +23,287 @@
         <div class="reveal">
             <div class="slides">
                 <section>
-                    <h1>Beautiful presentations</h1>
-                    <h2>New features</h2>
-                    <ul>
-                        <li>Nerd icons </li>
-                        <li>
-                            <code class="js">
-                                (inline) => code("highlighting")
-                            </code>
-                        </li>
-                        <li>Automatic QR Code generation</li>
-                        <li>and much more!</li>
-                    </ul>
-                </section>
-                <section>
-                    <h1>CUSTOM TOKYONIGHT THEME</h1>
-                    <h2 class="fragment">THAT HAS</h2>
-                    <h3 class="fragment">MULTI</h3>
-                    <h4 class="fragment">LEVEL</h4>
-                    <h5 class="fragment">HEADING</h5>
-                    <h6 class="fragment">COLORS</h6>
-                    <h6>
-                        Thanks to this project
-                        <a
-                            href="https://github.com/tcmmichaelb139/obsidian-tokyonight">
-                            
-                        </a>
-                        for the colorscheme!
-                    </h6>
+                    <h1>Макеты</h1>
+                    <img
+                        class="r-stretch"
+                        src="https://ktkv-presentations.github.io/uidev-8"
+                        data-type="qrcode" />
                 </section>
                 <section>
                     <section>
-                        <h1>Tailwind CSS</h1>
-                        <div class="grid grid-cols-2 gap-8">
-                            <div>
-                                <h5>Lorem, ipsum.</h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Error quod fugiat harum
-                                    modi laboriosam dignissimos, maxime
-                                    possimus? Error, nihil in.
-                                </p>
-                            </div>
-                            <div>
-                                <h5>Lorem, ipsum.</h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Error quod fugiat harum
-                                    modi laboriosam dignissimos, maxime
-                                    possimus? Error, nihil in.
-                                </p>
-                            </div>
-                            <div class="col-span-2">
-                                <h5>Lorem, ipsum.</h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Error quod fugiat harum
-                                    modi laboriosam dignissimos, maxime
-                                    possimus? Error, nihil in.
-                                </p>
-                            </div>
-                        </div>
-                    </section>
-                    <section>
-                        <h1>Custom classes</h1>
-                        <div class="grid grid-cols-3 gap-8">
-                            <div class="border-r">
-                                <h5>border-r</h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit. Illum, soluta!
-                                </p>
-                            </div>
-                            <div class="border-o">
-                                <h5>border-o</h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit. Illum, soluta!
-                                </p>
-                            </div>
-                            <div class="border-y">
-                                <h5>border-y</h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit. Illum, soluta!
-                                </p>
-                            </div>
-                        </div>
-                    </section>
-                </section>
-                <section>
-                    <section data-auto-animate>
-                        <h1>New code highlighting!</h1>
-                        <div>
-                            Now also has Tokyo Night
-                            <code>highlight.js</code>
-                            highlighting implementation
-                        </div>
-                        <pre><code data-trim data-noescape>
-var foo = {
-    bar: function () {
-             alert("Hello, World!");
-         }
-};	
-					</code></pre>
-                    </section>
-                    <section data-auto-animate>
-                        <h1>New code highlighting!</h1>
-                        <h5>Inline code highlighting is now also supported!</h5>
+                        <h1>Статичный</h1>
+                        <h4>Fixed Layout</h4>
                         <p>
-                            Just wrap your code with
-                            <code>&lt;code&gt;</code>
-                            tag and get highlighting like this
-                            <code class="js">
-                                const foo = () => {return bar}
-                            </code>
-                            !
+                            Вся страница и ее элементы имеют фиксированную
+                            ширину
+                        </p>
+                        <pre><code data-trim class="css">
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+                        </code></pre>
+                        <div class="border-r">
+                            <em>
+                                Может выглядеть маленьким или огромным в
+                                зависимости от экрана
+                            </em>
+                        </div>
+                    </section>
+                    <section>
+                        <h1>Резиновый</h1>
+                        <h4>Fluid Layout</h4>
+                        <p>
+                            Элементы растягиваются или сжимаются в зависимости
+                            от ширины экрана (из-за использования адаптивных
+                            единиц измерения)
+                        </p>
+                        <pre><code data-trim class="css">
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+                        </code></pre>
+                        <div class="border-b">
+                            <em>
+                                При слишком больших экранах текст может
+                                становиться неудобным для чтения
+                            </em>
+                        </div>
+                    </section>
+                    <section>
+                        <h1>Адаптивный</h1>
+                        <h4>Adaptive Layout</h4>
+                        <p>
+                            Учитывает разные размеры экранов и подстраивает сайт
+                            под них
+                        </p>
+                        <p>
+                            <em>
+                                По сути сайт содержит несколько версий макета
+                            </em>
+                        </p>
+                        <pre><code data-trim class="css">
+.container {
+  width: 1200px;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h1>Отзывчивый</h1>
+                        <h4>Responsive Layout</h4>
+                        <p>Сочетает adaptive и fluid подход</p>
+                        <pre><code data-trim class="css">
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.box {
+  width: 30%;
+}
+
+@media (max-width: 768px) {
+  .box {
+    width: 100%;
+  }
+}
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Понятие обтекания</h1>
+                        <h4>float</h4>
+                        <p>
+                            механизм, при котором элементы "плавающие" внутри
+                            текста, а текст или другие элементы могут огибать их
+                            слева или справа
+                        </p>
+                        <ul>
+                            <li>
+                                <code>float: left;</code>
+                                – элемент "плывет" влево, а текст обтекает его
+                                справа.
+                            </li>
+                            <li><code>float: right;</code></li>
+                        </ul>
+                        <pre><code data-trim class="css">
+img {
+  float: left;
+  margin-right: 15px;
+  width: 200px;
+}
+                        </code></pre>
+                        <pre><code data-trim class="html">
+&lt;p&gt;&lt;img src="image.jpg" alt="Картинка"&gt; Это текст, который обтекает изображение слева.&lt;/p&gt;
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h1>Управление обтеканием</h1>
+                        <p>
+                            Иногда нужно, чтобы после "плавающего" элемента
+                            следующий блок располагался ниже, а не сбоку
+                        </p>
+                        <ul>
+                            <li>clear: left; – запрещает обтекание слева.</li>
+                            <li>clear: right; – запрещает обтекание справа.</li>
+                            <li>
+                                clear: both; – запрещает обтекание с обеих
+                                сторон.
+                            </li>
+                        </ul>
+                        <pre><code data-trim class="css">
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h1>Float устарел</h1>
+                        <p>
+                            сейчас есть более удобные инструменты в виде
+                            <code>Flexbox</code>
+                            и
+                            <code>grid</code>
                         </p>
                     </section>
                 </section>
                 <section>
-                    <h1>Mermaid for beautiful diagrams!</h1>
-                    <div class="mermaid">
-                        <pre>
-						erDiagram
-    CUSTOMER ||--o{ ORDER : ""
-    CUSTOMER {
-        string name
-        string custNumber
-        string sector
-    }
-    ORDER ||--|{ LINE-ITEM : contains
-    ORDER {
-        int orderNumber
-        string deliveryAddress
-    }
-    LINE-ITEM {
-        string productCode
-        int quantity
-        float pricePerUnit
-    }
-    ORDER ||--|{ STUDENT : contains
-    STUDENT {
-        int orderNumber
-        string deliveryAddress
-    }
-						</pre
-                        >
-                    </div>
-                    <h4>
-                        Check documentation
-                        <a href="https://mermaid.js.org/config/usage.html">
-                            here
-                        </a>
-                        !
-                    </h4>
-                </section>
-                <section>
-                    <h1>Now supports Nerd font icons!</h1>
-                    <div>Nerdy project that adds icons to font itself</div>
-                    <h6>
-                        Checkout their site for icons like this
-                        <a href="https://www.nerdfonts.com/">󰖟</a>
-                        !
-                    </h6>
-                </section>
-                <section>
-                    <h1>Now supports automatic QRCode generation!</h1>
-                    <div>
-                        With GoQR you can just add data-type and alt attributes
-                        to your
-                        <code class="html">
-                            &lt;img src="https://goqr.me/" data-type="qrcode" /
-                            &gt;
-                        </code>
-                        tag!
-                    </div>
-                    <img
-                        class="r-stretch"
-                        src="https://goqr.me/"
-                        data-type="qrcode" />
-                </section>
-                <section>
-                    <h1>New changes on the way!</h1>
+                    <section>
+                        <h1>Позиционирование элементов на странице</h1>
+                        <p>
+                            позволяет управлять расположением элементов на
+                            веб-странице относительно других элементов,
+                            родительского контейнера или всего окна браузера
+                        </p>
+                    </section>
+                    <section>
+                        <h1>Static</h1>
+                        <h4>Статическое позиционирование</h4>
+                        <p>
+                            По умолчанию все элементы на веб-странице
+                            располагаются в потоке документа
+                        </p>
+                        <pre><code data-trim class="css">
+.box {
+    width: 200px;
+    height: 100px;
+    background: lightblue;
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h1>Relative</h1>
+                        <h4>Относительное позиционирование</h4>
+                        <p>
+                            Позволяет смещать элемент относительно его обычного
+                            (static) положения, но сам он продолжает занимать
+                            место в общем потоке
+                        </p>
+                        <pre><code data-trim class="css">
+.box {
+  position: relative;
+  left: 50px;
+  top: 20px;
+  background: lightcoral;
+}
+                        </code></pre>
+                        <p>
+                            <em>
+                                Для задания координат для вложенных
+                                <code>absolute</code>
+                                элементов
+                            </em>
+                        </p>
+                    </section>
+                    <section>
+                        <h1>Absolute</h1>
+                        <h4>Абсолютное позиционирование</h4>
+                        <p>
+                            Элемент выпадает из потока документа и
+                            позиционируется относительно ближайшего родителя с
+                            <code>position: relative</code>
+                            ,
+                            <code>absolute</code>
+                            или
+                            <code>fixed</code>
+                        </p>
+                        <p>
+                            <em>
+                                Если таких родителей нет, он позиционируется
+                                относительно body
+                            </em>
+                        </p>
+                        <pre><code data-trim class="html">
+&lt;div class="container"&gt;
+  &lt;div class="box"&gt;Я в углу блока&lt;/div&gt;
+&lt;/div&gt;
+                        </code></pre>
+                        <pre class="r-stretch"><code class="css">
+.container {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: lightgray;
+}
+
+.box {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: lightgreen;
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h1>Fixed</h1>
+                        <h4>Фиксированное позиционирование</h4>
+                        <p>
+                            Элемент остается на одном месте при прокрутке
+                            страницы
+                        </p>
+                        <pre><code data-trim class="css">
+.fixed-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: darkblue;
+  color: white;
+  padding: 10px;
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h1>Sticky</h1>
+                        <h4>Липкое позиционирование</h4>
+                        <p>Элемент ведет себя как обычный (relative), но при прокрутке прилипает к заданной позиции, пока не достигнет границы родителя</p>
+                        <pre class="r-stretch"><code class="css">
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background: orange;
+  padding: 10px;
+}
+                        </code></pre>
+                        <div class="border-r"><em>Родитель элемента должен иметь overflow: visible, иначе sticky работать не будет</em></div>
+                    </section>
                 </section>
             </div>
         </div>
@@ -396,4 +494,3 @@ var foo = {
         </script>
     </body>
 </html>
-
