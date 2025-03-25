@@ -252,22 +252,22 @@ img {
                         </p>
                         <pre><code data-trim class="html">
 &lt;div class="container"&gt;
-  &lt;div class="box"&gt;Я в углу блока&lt;/div&gt;
+    &lt;div class="box"&gt;Я в углу блока&lt;/div&gt;
 &lt;/div&gt;
                         </code></pre>
                         <pre class="r-stretch"><code class="css">
 .container {
-  position: relative;
-  width: 300px;
-  height: 200px;
-  background: lightgray;
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: lightgray;
 }
 
 .box {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  background: lightgreen;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background: lightgreen;
 }
                         </code></pre>
                     </section>
@@ -280,29 +280,427 @@ img {
                         </p>
                         <pre><code data-trim class="css">
 .fixed-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: darkblue;
-  color: white;
-  padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: darkblue;
+    color: white;
+    padding: 10px;
 }
                         </code></pre>
                     </section>
                     <section>
                         <h1>Sticky</h1>
                         <h4>Липкое позиционирование</h4>
-                        <p>Элемент ведет себя как обычный (relative), но при прокрутке прилипает к заданной позиции, пока не достигнет границы родителя</p>
-                        <pre class="r-stretch"><code class="css">
+                        <p>
+                            Элемент ведет себя как обычный (relative), но при
+                            прокрутке прилипает к заданной позиции, пока не
+                            достигнет границы родителя
+                        </p>
+                        <pre><code class="css">
 .sticky-header {
-  position: sticky;
-  top: 0;
-  background: orange;
-  padding: 10px;
+    position: sticky;
+    top: 0;
+    background: orange;
+    padding: 10px;
 }
                         </code></pre>
-                        <div class="border-r"><em>Родитель элемента должен иметь overflow: visible, иначе sticky работать не будет</em></div>
+                        <div class="border-r">
+                            <em>
+                                Родитель элемента должен иметь overflow:
+                                visible, иначе sticky работать не будет
+                            </em>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>
+                            Размещение
+                            <code class="css">absolute</code>
+                            ,
+                            <code class="css">fixed</code>
+                            и
+                            <code class="css">sticky</code>
+                            элементов
+                        </h1>
+                        <p>
+                            Положением можно управлять с помощью следующих
+                            свойств:
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border-b">
+                                <code class="css">top</code>
+                            </div>
+                            <div class="border-b">
+                                <code class="css">bottom</code>
+                            </div>
+                            <div class="border-b">
+                                <code class="css">right</code>
+                            </div>
+                            <div class="border-b">
+                                <code class="css">left</code>
+                            </div>
+                            <div class="border-b col-span-2">
+                                <code class="css">inset</code>
+                                <div>
+                                    Сокращенная запись (можно писать также
+                                    несколько значений, как для
+                                    <code class="css">margin</code>
+                                    и
+                                    <code class="css">padding</code>
+                                    )
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h1>Особенности применения</h1>
+                        <h4>
+                            1. С разными свойствами
+                            <code class="css">display</code>
+                        </h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border-b">
+                                <h4><code class="css">absolute</code></h4>
+                                <p>
+                                    Отступ происходит от ближайшего предка с
+                                    <code class="css">relative</code>
+                                    свойство или от
+                                    <code class="html">&lt;body&gt;</code>
+                                </p>
+                            </div>
+                            <div class="border-b">
+                                <h4><code class="css">fixed</code></h4>
+                                <p>
+                                    Отступ происходит от окна браузера
+                                    <code class="css">viewport</code>
+                                </p>
+                            </div>
+                            <div class="border-b col-span-2">
+                                <h4><code class="css">sticky</code></h4>
+                                <p>
+                                    Занимает свое обычное место согласно flow,
+                                    при достижении элемента работает аналогично
+                                    <code class="css">fixed</code>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h1>Особенности применения</h1>
+                        <h4>2. Заданы два противоположенных свойства</h4>
+                        <p>
+                            Если заданы оба противоположных отступа (
+                            <code>left</code>
+                            и
+                            <code>right</code>
+                            ), элемент растянется
+                        </p>
+                        <pre><code data-trim class="html">
+&lt;div class="parent"&gt;
+    &lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;
+                        </code></pre>
+                        <pre><code data-trim class="css">
+.parent {
+    display: relative;
+    width: 1000px;
+}
+
+.box {
+    display: absolute;
+    left: 100px;
+    right: 200px;
+}
+                        </code></pre>
+                        <div class="border-b">
+                            <em>
+                                Размер элемента будет 700 пикселей (1000 - (100
+                                + 200))
+                            </em>
+                        </div>
+                    </section>
+                    <section>
+                        <h1>Особенности применения</h1>
+                        <h4>3. Центрирование элемента</h4>
+
+                        <p>Для центрирования элемента используется логика:</p>
+                        <ul>
+                            <li>Отступ на 50% от края родителя</li>
+                            <li>Отступ обратно на 50% от размера элемента</li>
+                        </ul>
+                        <pre><code data-trim class="css">
+.box-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.box-center-x {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.box-center-y {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>z-index</h1>
+                        <p>
+                            управляет положением элементов по оси Z,
+                            <em>
+                                определяет, какой элемент будет находиться выше
+                                или ниже других
+                            </em>
+                        </p>
+                        <pre><code data-trim class="css">
+.popup {
+    z-index: 100;
+}
+                        </code></pre>
+                        <div class="border-b">
+                            <em>
+                                Чем выше
+                                <code class="css">z-index</code>
+                                , тем выше слой элемента
+                            </em>
+                        </div>
+                    </section>
+                    <section>
+                        <h1>
+                            Особенности применения
+                            <code class="css">z-index</code>
+                        </h1>
+                        <h4>
+                            1. Работает только с позиционированными элементами
+                        </h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border-r">
+                                <h1>❌</h1>
+                                <pre><code data-trim class="css">
+.box {
+    z-index: 10;
+}
+                                </code></pre>
+                            </div>
+                            <div class="border-g">
+                                <h1>✔️</h1>
+                                <pre><code data-trim class="css">
+.box {
+    position: relative;
+    z-index: 10;
+}
+                                </code></pre>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>2. Если не указан</h4>
+                        <p>
+                            Браузер будет применять следующий алгоритм рисования
+                            слоев (от задника к верху):
+                        </p>
+                        <ol>
+                            <li>Фоновые элементы (без position)</li>
+                            <li>Блочные элементы</li>
+                            <li>
+                                Позиционированные элементы (relative, absolute,
+                                fixed, sticky)
+                            </li>
+                            <li>Элементы с z-index (в порядке возрастания)</li>
+                        </ol>
+                        <div class="grid grid-cols-2 gap-4">
+                            <pre><code data-trim class="html">
+<div class="box1"></div>
+<div class="box2"></div>
+                            </code></pre>
+                            <pre><code data-trim class="css">
+.box1 {
+  position: absolute;
+  background: blue;
+}
+
+.box2 {
+  position: absolute;
+  background: red;
+}
+                            </code></pre>
+                        </div>
+                        <div class="border-b">
+                            <em>
+                                Красный (box2) будет выше, потому что он идет
+                                позже в коде
+                            </em>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border-b">
+                                <h4><code class="css">z-index: -1</code></h4>
+                                <p>
+                                    Элемент уходит под все остальные, даже
+                                    фоновый контент
+                                </p>
+                            </div>
+                            <div class="border-b">
+                                <h4><code class="css">z-index: 0</code></h4>
+                                <p>
+                                    Элемент остается на стандартном уровне,
+                                    <em>
+                                        но подчиняется родительскому
+                                        <code class="css">z-index</code>
+                                    </em>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Контекст наложения</h4>
+                        <p>
+                            <em>
+                                независимая группа элементов, в которой z-index
+                                применяется только внутри этой группы
+                            </em>
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <pre><code data-trim class="html">
+<div class="parent">
+    <div class="child">
+    </div>
+</div>
+<div class="other"></div>
+                            </code></pre>
+                            <pre><code data-trim class="css">
+.parent {
+  position: relative;
+  z-index: 10;
+}
+
+.child {
+  position: absolute;
+  z-index: 999;
+}
+
+.other {
+  position: absolute;
+  z-index: 11;
+}
+                            </code></pre>
+                        </div>
+                        <div class="border-r">
+                            Элемент с классом
+                            <code>other</code>
+                            будет выше элемента с классом
+                            <code>child</code>
+                            , так как
+                            <code>999</code>
+                            применяется в контексте элемента с классом
+                            <code>parent</code>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>
+                            Переполнение контейнера
+                            <code class="css">overflow</code>
+                        </h1>
+                        <p>
+                            определяет, как обрабатывается контент, выходящий за
+                            границы элемента
+                        </p>
+                        <div class="border-r">
+                            <em>
+                                Применяется только к элементам с ограниченной
+                                высотой или шириной
+                            </em>
+                        </div>
+                        <pre><code data-trim class="css">
+.parent {
+    width: 100px;
+    overflow: visible;
+}
+
+.child {
+    width: 200px;
+}
+                        </code></pre>
+                        <em>
+                            <code>child</code>
+                            элемент выходит за границы родителя
+                        </em>
+                    </section>
+                    <section>
+                        <h1>
+                            Значения для
+                            <code class="css">overflow</code>
+                        </h1>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border-b">
+                                <h3><code class="css">visible</code></h3>
+                                <h4>по умолчанию</h4>
+                                <p>Контент выходит за границы</p>
+                            </div>
+                            <div class="border-b">
+                                <h3>
+                                    <code class="css">hidden</code>
+                                    или
+                                    <code class="css">clip</code>
+                                </h3>
+                                <p>Обрезает всё, что выходит за пределы</p>
+                            </div>
+                            <div class="border-b">
+                                <h3><code class="css">scroll</code></h3>
+                                <p>
+                                    Показывает полосы прокрутки всегда, даже
+                                    если контейнер не переполнен
+                                </p>
+                            </div>
+                            <div class="border-b">
+                                <h3><code class="css">auto</code></h3>
+                                <p>
+                                    Показывает полосы прокрутки только если
+                                    контент выходит за границы контейнера
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h1>
+                            Ограничения по
+                            <code>X</code>
+                            и
+                            <code>Y</code>
+                        </h1>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border-b">
+                                <code class="css">overflow-x: hidden</code>
+                            </div>
+                            <div class="border-b">
+                                <code class="css">overflow-y: auto</code>
+                            </div>
+                            <div class="border-b col-span-2">
+                                <code class="css">overflow: hidden auto</code>
+                                <div>
+                                    <em>
+                                        <code class="css">hidden</code>
+                                        по X и
+                                        <code class="css">auto</code>
+                                        по Y
+                                    </em>
+                                </div>
+                            </div>
+                        </div>
                     </section>
                 </section>
             </div>
